@@ -63,9 +63,18 @@ class EmployeeController extends \BaseController {
 		$employee->first_name = Input::get('first_name');
 		$employee->last_name = Input::get('last_name');
 		$employee->identification_number = Input::get('identification_number');
-		$employee->address = Input::get('address');
-		$employee->phone = Input::get('phone');
-		$employee->email = Input::get('email');
+    $employee->sex = Input::get('sex');
+    $employee->born_date = date("Y-m-d", strtotime(Input::get('born_date')));
+    $employee->born_place = Input::get('born_place');
+    $employee->marital_status = Input::get('marital_status');
+    $employee->familiar_burden = Input::get('familiar_burden');
+    $employee->children_number = Input::get('children_number');
+    $employee->training_degree = Input::get('training_degree');
+    $employee->admission_date = date("Y-m-d", strtotime(Input::get('admission_date')));
+    $employee->address = Input::get('address');
+    $employee->phone = Input::get('phone');
+    $employee->type = 'normal';
+    $employee->status = 'publish';
 
 		$employee->save();
 
@@ -99,12 +108,21 @@ class EmployeeController extends \BaseController {
 
 		$id = Crypt::decrypt($id);
 		$employee = Employees::find($id);
-		$employee->first_name = Input::get('first_name');
-		$employee->last_name = Input::get('last_name');
-		$employee->identification_number = Input::get('identification_number');
-		$employee->address = Input::get('address');
-		$employee->phone = Input::get('phone');
-		$employee->email = Input::get('email');
+    $employee->first_name = Input::get('first_name');
+    $employee->last_name = Input::get('last_name');
+    $employee->identification_number = Input::get('identification_number');
+    $employee->sex = Input::get('sex');
+    $employee->born_date = date("Y-m-d", strtotime(Input::get('born_date')));
+    $employee->born_place = Input::get('born_place');
+    $employee->marital_status = Input::get('marital_status');
+    $employee->familiar_burden = Input::get('familiar_burden');
+    $employee->children_number = Input::get('children_number');
+    $employee->training_degree = Input::get('training_degree');
+    $employee->admission_date = date("Y-m-d", strtotime(Input::get('admission_date')));
+    $employee->address = Input::get('address');
+    $employee->phone = Input::get('phone');
+    $employee->type = 'normal';
+    $employee->status = 'publish';
 
 		$employee->save();
 
@@ -119,9 +137,18 @@ class EmployeeController extends \BaseController {
 			$id = Crypt::decrypt($id);
 			$employee = Employees::find($id);
 
+      $born_date = date_create( date("Y-m-d", strtotime($employee->born_date) ) );
+      $actual_date = date_create( date('Y-m-d') );
+
+      //$interval = date_diff($born_date, $actual_date);
+      $interval = date_diff($actual_date, $born_date);
+
+      $age = $interval->format( '%y Años' );
+
 			$array = array(
 				'route' => $this->route,
 				'employee' => $employee,
+        'age' => $age,
 				);	
 
 			return View::make('employees.show')->with( $array );

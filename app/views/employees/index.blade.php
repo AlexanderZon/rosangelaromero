@@ -84,7 +84,7 @@
                       Teléfono
                     </th>
                     <th>
-                      Correo
+                      Sexo
                     </th>
                     <th>
                       Direccion
@@ -114,7 +114,7 @@
                         {{ $employee->phone }}
                       </td>
                       <td class="hidden-xs">
-                        {{ $employee->email }}
+                        {{ $employee->sex }}
                       </td>
                       <td class="hidden-xs">
                         {{ $employee->address }}
