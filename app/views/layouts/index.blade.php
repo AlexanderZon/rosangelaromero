@@ -3,7 +3,7 @@
   
 <head>
     <title>
-      Systema
+      Sistema
     </title>
     
     <link rel="icon" href="/images/logo.jpg" />
