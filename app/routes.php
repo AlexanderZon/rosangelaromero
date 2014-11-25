@@ -59,6 +59,10 @@ if(Auth::check() && Auth::user()->type=='administrator'):
 	Route::controller('/auth','AuthController');
 	Route::controller('/users','UserController');
 	Route::controller('/employees', 'EmployeeController');
+	Route::controller('/services', 'ServiceController');
+	Route::controller('/shifts', 'ShiftController');
+	Route::controller('/absences', 'AbsenceController');
+	Route::controller('/programmer', 'ProgrammerController');
 	/*Route::controller('/ajax', 'AjaxController');*/
 
 elseif(Auth::check() && Auth::user()->type=='operator'):

@@ -298,6 +298,15 @@
               <li>
                 <a href="/employees"><span aria-hidden="true" class="se7en-home"></span>Empleados</a>
               </li>
+              <li>
+                <a href="/services"><span aria-hidden="true" class="se7en-home"></span>Servicios</a>
+              </li>
+              <li>
+                <a href="/shifts"><span aria-hidden="true" class="se7en-home"></span>Turnos</a>
+              </li>
+              <li>
+                <a href="/absences"><span aria-hidden="true" class="se7en-home"></span>Faltas</a>
+              </li>
               <li><a href="/programmer">
                 <span aria-hidden="true" class="se7en-feed"></span>Programador</a>
               </li>
@@ -326,7 +335,7 @@
         width: 100%;
         display:block;
         text-align:center;
-        background: #620000;
+        background: #4D6FAC;
         position:fixed;
         bottom: 0;
       }

@@ -88,7 +88,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'pasantias_laravel',
+			'database'  => 'pasantias_rosangela',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
