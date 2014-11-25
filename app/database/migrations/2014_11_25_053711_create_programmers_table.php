@@ -15,7 +15,7 @@ class CreateProgrammersTable extends Migration {
 		Schema::create('programmers', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->integer('id_employeer');
+			$table->integer('id_employee');
 			$table->integer('id_service');
 			$table->integer('id_shift');
 			$table->date('program_date');

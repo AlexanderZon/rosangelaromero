@@ -98,6 +98,8 @@
 
    <script src="/javascripts/select2.js" type="text/javascript"></script>
 
+   <script src="/javascripts/moment.js" type="text/javascript"></script>
+
    <script src="/javascripts/styleswitcher.js" type="text/javascript"></script>
 
    <script src="/javascripts/wysiwyg.js" type="text/javascript"></script>
