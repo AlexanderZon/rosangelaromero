@@ -5,7 +5,7 @@
       <div class="container-fluid main-content">
         <div class="page-title">
           <h1>
-            Programador de Jornadas
+            Calendario de la Quincena
           </h1>
         </div>
         <!-- DataTables Example -->
@@ -59,9 +59,9 @@
                     @foreach( $dates as $date )
                       <?php $color = 'inactive' ?>
                       <?php $prog = null ?>
-                      @foreach( $employee->programmersInterval as $programmer)
+                      @foreach( $employee->programmersFortnight as $programmer)
                         @if($programmer->program_date == $date)
-                          <?php $prog = $programmer->id; ?>
+                          <?php $prog = $programmer; ?>
                           @if($programmer->shift->fault)
                             <?php $color = 'red' ?>
                           @else
@@ -72,13 +72,10 @@
                       <td class="filter-category {{ $color }}" data-coord="{{ $employee->id}}-{{ $date }}">
                         <div class="arrow-left"></div>
                         @if($color == 'inactive')
-                          <a href="{{ $route }}/program/{{ Crypt::encrypt($employee->id) }}/{{ Crypt::encrypt($date) }}/" class="fancybox fancybox.ajax">
-                            <i class="fa {{ $color == 'inactive' ? 'icon-screenshot' : 'icon-edit'}}"></i>
-                          </a>
+                            <i class="fa icon-remove"></i>
                         @else
-                          <a href="{{ $route }}/reprogram/{{ Crypt::encrypt($prog) }}" class="fancybox fancybox.ajax">
-                            <i class="fa icon-edit"></i>
-                          </a>
+                        	<span style="font-size:16pt;font-weight:bold;line-height:16pt">{{ $prog->shift->prefix }}</span><br>
+                        	<span style="font-size:8pt;line-height:1pt">{{ $prog->service['name'] }}</span>
                         @endif
                       </td>
                     @endforeach

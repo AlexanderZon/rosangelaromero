@@ -5,7 +5,7 @@
     <title>
       Login
     </title>
-     <link rel="icon" href="/images/logo.png" />
+     <link rel="icon" href="/images/logo.jpg" />
    
     <link href="/stylesheets/fonts.googleapis.css" media="all" rel="stylesheet" type="text/css" />
 

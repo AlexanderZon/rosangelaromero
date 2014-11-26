@@ -57,6 +57,24 @@ class Employees extends Eloquent {
 
 	}
 
+	public function programmersInterval(){
+
+		$today =  date('d');
+		$month = date('m');
+		$year = date('Y');
+
+		$dates = array();
+
+		$maxdate = date('Y-m-d', strtotime('+4 days'));
+		$mindate = date('Y-m-d', strtotime('-4 days'));
+
+		return $this->hasMany( 'Programmers', 'id_employee' )
+			->where ('program_date', '>', date('Y-m-d', strtotime($mindate)))
+			->where ('program_date', '<', date('Y-m-d', strtotime($maxdate)))
+            ->orderBy('program_date','asc');
+
+	}
+
 	public function programmers(){
 
 		return $this->hasMany( 'Programmers', 'id_employee' );

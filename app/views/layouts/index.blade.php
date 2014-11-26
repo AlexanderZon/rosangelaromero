@@ -298,21 +298,24 @@
           <div class="nav-collapse">
             <ul class="nav">
               <li>
-                <a href="/employees"><span aria-hidden="true" class="se7en-home"></span>Empleados</a>
-              </li>
-              <li>
-                <a href="/services"><span aria-hidden="true" class="se7en-home"></span>Servicios</a>
-              </li>
-              <li>
-                <a href="/shifts"><span aria-hidden="true" class="se7en-home"></span>Turnos</a>
-              </li>
-              <li>
-                <a href="/absences"><span aria-hidden="true" class="se7en-home"></span>Faltas</a>
+                <a href="/employees"><span aria-hidden="true" class="icon-male"></span>Empleados</a>
               </li>
               <li><a href="/programmer">
-                <span aria-hidden="true" class="se7en-feed"></span>Programador</a>
+                <span aria-hidden="true" class="icon-cogs"></span>Programador</a>
+              </li>
+              <li><a href="/calendar">
+                <span aria-hidden="true" class="icon-calendar"></span>Calendario</a>
               </li>
               @if(Auth::check() && Auth::user()->type=='administrator')
+              <li>
+                <a href="/services"><span aria-hidden="true" class="icon-flag"></span>Servicios</a>
+              </li>
+              <li>
+                <a href="/shifts"><span aria-hidden="true" class="icon-bullseye"></span>Turnos</a>
+              </li>
+              <li>
+                <a href="/absences"><span aria-hidden="true" class="icon-bullhorn"></span>Faltas</a>
+              </li>
               <li><a href="/users">
                 <span aria-hidden="true" class="icon-user"></span>Usuarios</a>
               </li>

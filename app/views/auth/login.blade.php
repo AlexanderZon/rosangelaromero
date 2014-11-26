@@ -6,7 +6,7 @@
     <!-- Login Screen -->
     <div class="login-wrapper">
     <div align="CENTER" class="login">
-    <a href="/auth/login" title="Cprov"><img src="/images/logo_system.png"style = "padding-top:50px"/></a>
+    <a href="/auth/login" title="Cprov"><img src="/images/logo.jpg"style = "padding-top:50px"/></a>
 
 
     </div>
