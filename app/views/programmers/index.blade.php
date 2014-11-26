@@ -26,7 +26,7 @@
                       Empleado
                     </th>
                     @foreach( $dates as $date )
-                      <th width="65" class="day-month">
+                      <th width="75" class="day-month">
                         {{ $date }}
                       </th>
                     @endforeach
@@ -57,15 +57,29 @@
                       {{ $employee->first_name . ' ' . $employee->last_name }}
                     </td>
                     @foreach( $dates as $date )
-                      <?php $color = 'blue' ?>
+                      <?php $color = 'inactive' ?>
+                      <?php $prog = null ?>
                       @foreach( $employee->programmersFortnight as $programmer)
                         @if($programmer->program_date == $date)
-                         <?php $color = 'red' ?>
+                          <?php $prog = $programmer->id; ?>
+                          @if($programmer->shift->fault)
+                            <?php $color = 'red' ?>
+                          @else
+                            <?php $color = 'blue' ?>
+                          @endif
                         @endif
                       @endforeach
-                      <td class="filter-category {{ $color}}">
+                      <td class="filter-category {{ $color }}" data-coord="{{ $employee->id}}-{{ $date }}">
                         <div class="arrow-left"></div>
-                        <i class="fa icon-stethoscope"></i>
+                        @if($color == 'inactive')
+                          <a href="{{ $route }}/program/{{ Crypt::encrypt($employee->id) }}/{{ Crypt::encrypt($date) }}/" class="fancybox fancybox.ajax">
+                            <i class="fa {{ $color == 'inactive' ? 'icon-screenshot' : 'icon-edit'}}"></i>
+                          </a>
+                        @else
+                          <a href="{{ $route }}/reprogram/{{ Crypt::encrypt($prog) }}" class="fancybox fancybox.ajax">
+                            <i class="fa icon-edit"></i>
+                          </a>
+                        @endif
                       </td>
                     @endforeach
                   @endforeach
@@ -76,4 +90,10 @@
           </div>
         </div>
         <!-- end DataTables Example -->
+        <style type="text/css">
+          a.fancybox{
+            text-decoration: none;
+            color: #fff;
+          }
+        </style>
         @stop

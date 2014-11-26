@@ -2569,6 +2569,8 @@ button.close {
       font-size: 24px; }
   .table-filters tbody tr td.blue {
     background: #5bc0de; }
+  .table-filters tbody tr td.darkblue {
+    background: #5bc0de; }
   .table-filters tbody tr td.green {
     background: #60c560; }
   .table-filters tbody tr td.orange {

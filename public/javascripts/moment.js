@@ -9398,6 +9398,10 @@ $(document).on('ready', function(){
     moment.locale('es');
     $('.day-month').each(function(){
         var elem =  $(this);
-        elem.html(moment(elem.html()).format('Do MMM'));
+        elem.html(moment(elem.html()).format('DD<br>MMM'));
+        elem.css({
+            /*'transform':'rotate(45deg)',*/
+            'text-align':'center'
+        });
     });
 });
