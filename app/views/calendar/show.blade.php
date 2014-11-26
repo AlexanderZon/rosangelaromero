@@ -15,6 +15,21 @@
               <!-- <div class="heading">
                 <a href="{{ $route }}/create"><i class="icon-user"></i>Añadir Nuevo Turno</a>
               </div> -->
+                <form action="{{ $route }}" target="_blank" method="post" style="float:right;background-color:#EEEEEE;padding:1em;margin:.5em;border-radius:5px;width:100%">
+                  <div class="form-group" style="display:block">
+                    <div class="col-sm-5"></div>
+                    <label class="control-label col-md-2" style="font-size:12pt">Indique el intervalo de Fecha</label>
+                    <div class="col-sm-2">
+                      <input class="form-control" data-date-autoclose="true" data-date-format="dd-mm-yyyy" id="dpd1" placeholder="Desde" type="text" value="{{ isset( $desde ) ? $desde : '' }}">
+                    </div>
+                    <div class="col-sm-2">
+                      <input class="form-control" data-date-autoclose="true" data-date-format="dd-mm-yyyy" id="dpd2" placeholder="Hasta" type="text" value="{{ isset( $hasta ) ? $hasta : '' }}">
+                    </div>
+                    <div class="col-sm-1">
+                      <button type="submit" class="btn btn-info"><i class="fa fa-cloud-download"></i>Reporte</button>
+                    </div>
+                  </div>
+                </form>
               <div class="widget-content padded clearfix">
                 <table class="table table-filters">
                 <thead>

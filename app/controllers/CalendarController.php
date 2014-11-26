@@ -21,6 +21,12 @@ class CalendarController extends \BaseController {
 
 	}
 
+	public function postIndex(){
+
+
+
+	}
+
 	public function getFortnight(){
 
 		$today =  date('d');
@@ -68,6 +74,17 @@ class CalendarController extends \BaseController {
 
 
 		endif;
+
+		return $dates;
+
+	}
+
+	public function getFromTo( $from, $to ){
+
+		$from = date('Y-m-d', strtotime($from));
+		$to = date('Y-m-d', strtotime($to));
+
+		$dates = array();
 
 		return $dates;
 
