@@ -21,13 +21,19 @@
 		          <div class="form-group">
 			            <label class="control-label col-md-2">Nombre</label>
 			            <div class="col-md-7">
-			              <input class="form-control" placeholder="Escriba el nombre del turno" name="title" type="text"/>
+			              <input class="form-control" placeholder="Escriba el nombre del turno" name="title" type="text" required/>
 			            </div>
 			        </div>
 					<div class="form-group">
 			            <label class="control-label col-md-2">Siglas</label>
 			            <div class="col-md-7">
-			              <input class="form-control" placeholder="Indique las siglas del turno" name="prefix" type="text">
+			              <input class="form-control" placeholder="Indique las siglas de identificación del turno" name="prefix" type="text" required>
+			            </div>
+			        </div>
+					<div class="form-group">
+			            <label class="control-label col-md-2">Horas</label>
+			            <div class="col-md-7">
+			              <input class="form-control" placeholder="Indique la catidad de horas" name="hours" type="number" required>
 			            </div>
 			        </div>
 					<div class="form-group">

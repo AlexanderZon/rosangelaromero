@@ -17,6 +17,7 @@ class CreateShiftsTable extends Migration {
 			$table->increments('id');
 			$table->string('prefix');
 			$table->string('title');
+			$table->integer('hours');
 			$table->boolean('fault');
 			$table->timestamps();
 		});

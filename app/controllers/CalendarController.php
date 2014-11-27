@@ -2,7 +2,7 @@
 
 class CalendarController extends \BaseController {
 
-	protected $route = '/programmer';
+	protected $route = '/calendar';
 
 	public function getIndex()
 	{
@@ -23,7 +23,24 @@ class CalendarController extends \BaseController {
 
 	public function postIndex(){
 
+		$from = Input::get('from');
 
+		$employees = Employees::allFrom($from);
+
+		$programs = $employees[0]->programs;
+
+		$dates = $this->getFrom( $from );
+
+		//dd($employees[0]->programmersFortnight());
+
+		$array = array(
+			'employees' => $employees,
+			'dates' => $dates,
+			'from' => $from,
+			'route' => $this->route
+		);
+
+		return View::make('calendar.filter')->with($array);
 
 	}
 
@@ -79,12 +96,15 @@ class CalendarController extends \BaseController {
 
 	}
 
-	public function getFromTo( $from, $to ){
+	public function getFrom( $from ){
 
 		$from = date('Y-m-d', strtotime($from));
-		$to = date('Y-m-d', strtotime($to));
 
 		$dates = array();
+
+		for( $i = 0 ; $i < 15 ; $i++ ){
+			$dates[] = date('Y-m-d', strtotime($from.'+'.$i.' days'));
+		}
 
 		return $dates;
 

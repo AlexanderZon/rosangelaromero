@@ -49,6 +49,7 @@ class ShiftController extends \BaseController {
 		$shift = new Shifts();
 		$shift->title = Input::get('title');
 		$shift->prefix = Input::get('prefix');
+		$shift->hours = Input::get('hours');
 		$shift->fault = false;
 
 		$shift->save();
@@ -85,6 +86,7 @@ class ShiftController extends \BaseController {
 		$shift = Shifts::find($id);
 	    $shift->title = Input::get('title');
 	    $shift->prefix = Input::get('prefix');
+		$shift->hours = Input::get('hours');
 		$shift->fault = false;
 
 		$shift->save();

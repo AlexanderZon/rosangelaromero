@@ -21,7 +21,7 @@
                   <label class="control-label col-md-3" style="font-size:12pt;padding-top:.5em;">Indique el intervalo de 5 días a partir de:</label>
                   <div class="col-sm-2">
                     <div class="input-group date datepicker" data-date-autoclose="true" data-date-format="dd-mm-yyyy">
-                      <input class="form-control" type="text" name="from" required><span class="input-group-addon"><i class="icon-calendar"></i></span>
+                      <input class="form-control" type="text" name="from" value="{{ $from }}" required><span class="input-group-addon"><i class="icon-calendar"></i></span>
                     </div>
                   </div>
                   <div class="col-sm-1">
@@ -73,7 +73,7 @@
                     @foreach( $dates as $date )
                       <?php $color = 'inactive' ?>
                       <?php $prog = null ?>
-                      @foreach( $employee->programmersInterval as $programmer)
+                      @foreach( $employee->programs as $programmer)
                         @if($programmer->program_date == $date)
                           <?php $prog = $programmer->id; ?>
                           @if($programmer->shift->fault)

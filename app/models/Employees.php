@@ -4,6 +4,18 @@ class Employees extends Eloquent {
 
 	protected $fillable = [];
 
+	public static function allFrom( $from, $days = 15 ){
+
+		$employees = self::all();
+	
+		foreach( $employees as $employee ):
+			$employee->programs = self::programmersFilterFrom( $from, $employee->id, $days );
+		endforeach;
+
+		return $employees;
+
+	}
+
 	public function programmersFortnight(){
 
 		$today =  date('d');
@@ -72,6 +84,18 @@ class Employees extends Eloquent {
 			->where ('program_date', '>', date('Y-m-d', strtotime($mindate)))
 			->where ('program_date', '<', date('Y-m-d', strtotime($maxdate)))
             ->orderBy('program_date','asc');
+
+	}
+
+	public static function programmersFilterFrom( $from, $employee, $days ){
+
+		$mindate = date('Y-m-d', strtotime($from));
+		$maxdate = date('Y-m-d', strtotime($mindate.'+'.$days.' days'));
+
+		return Programmers::where('id_employee', '=', $employee )
+			->where ('program_date', '>', date('Y-m-d', strtotime($mindate)))
+			->where ('program_date', '<', date('Y-m-d', strtotime($maxdate)))
+            ->orderBy('program_date','asc')->get();
 
 	}
 

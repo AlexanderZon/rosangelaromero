@@ -21,13 +21,19 @@
 		          <div class="form-group">
 			            <label class="control-label col-md-2">Nombre</label>
 			            <div class="col-md-7">
-			              <input class="form-control" placeholder="Escriba el nombre del turno" name="title" type="text" value="{{ $shift->title }}"/>
+			              <input class="form-control" placeholder="Escriba el nombre del turno" name="title" type="text" value="{{ $shift->title }}" required/>
 			            </div>
 			        </div>
 					<div class="form-group">
 			            <label class="control-label col-md-2">Siglas</label>
 			            <div class="col-md-7">
-			              <input class="form-control" placeholder="Indique las siglas del turno" name="prefix" type="text" value="{{ $shift->prefix }}">
+			              <input class="form-control" placeholder="Indique las siglas de identificación del turno" name="prefix" type="text" value="{{ $shift->prefix }}" required/>
+			            </div>
+			        </div>
+					<div class="form-group">
+			            <label class="control-label col-md-2">Horas</label>
+			            <div class="col-md-7">
+			              <input class="form-control" placeholder="Indique la cantidad de horas" name="hours" type="number" value="{{ $shift->hours }}" required/>
 			            </div>
 			        </div>
 					<div class="form-group">

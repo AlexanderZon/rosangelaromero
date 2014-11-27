@@ -49,6 +49,7 @@ class AbsenceController extends \BaseController {
 		$shift = new Shifts();
 		$shift->title = Input::get('title');
 		$shift->prefix = Input::get('prefix');
+		$shift->hours = 0;
 		$shift->fault = true;
 
 		$shift->save();
@@ -85,6 +86,7 @@ class AbsenceController extends \BaseController {
 		$shift = Shifts::find($id);
 	    $shift->title = Input::get('title');
 	    $shift->prefix = Input::get('prefix');
+		$shift->hours = 0;
 		$shift->fault = true;
 
 		$shift->save();

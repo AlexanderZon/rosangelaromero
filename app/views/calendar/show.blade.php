@@ -15,21 +15,20 @@
               <!-- <div class="heading">
                 <a href="{{ $route }}/create"><i class="icon-user"></i>Añadir Nuevo Turno</a>
               </div> -->
-                <form action="{{ $route }}" target="_blank" method="post" style="float:right;background-color:#EEEEEE;padding:1em;margin:.5em;border-radius:5px;width:100%">
-                  <div class="form-group" style="display:block">
-                    <div class="col-sm-5"></div>
-                    <label class="control-label col-md-2" style="font-size:12pt">Indique el intervalo de Fecha</label>
-                    <div class="col-sm-2">
-                      <input class="form-control" data-date-autoclose="true" data-date-format="dd-mm-yyyy" id="dpd1" placeholder="Desde" type="text" value="{{ isset( $desde ) ? $desde : '' }}">
-                    </div>
-                    <div class="col-sm-2">
-                      <input class="form-control" data-date-autoclose="true" data-date-format="dd-mm-yyyy" id="dpd2" placeholder="Hasta" type="text" value="{{ isset( $hasta ) ? $hasta : '' }}">
-                    </div>
-                    <div class="col-sm-1">
-                      <button type="submit" class="btn btn-info"><i class="fa fa-cloud-download"></i>Reporte</button>
+              <div class="form-group" style="display:block;float:right;background-color:#EEEEEE;padding:1em;margin:.5em;border-radius:5px;width:100%">
+                <form action="{{ $route }}" method="post">
+                  <div class="col-sm-6"></div>
+                  <label class="control-label col-md-3" style="font-size:12pt;padding-top:.5em;">Indique el intervalo de 15 días a partir de:</label>
+                  <div class="col-sm-2">
+                    <div class="input-group date datepicker" data-date-autoclose="true" data-date-format="dd-mm-yyyy">
+                      <input class="form-control" type="text" name="from" required><span class="input-group-addon"><i class="icon-calendar"></i></span>
                     </div>
                   </div>
+                  <div class="col-sm-1">
+                    <button type="submit" class="btn btn-info"><i class="fa icon-cloud-download"></i> Filtrar</button>
+                  </div>
                 </form>
+              </div>
               <div class="widget-content padded clearfix">
                 <table class="table table-filters">
                 <thead>

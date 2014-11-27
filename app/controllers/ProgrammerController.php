@@ -20,6 +20,43 @@ class ProgrammerController extends \BaseController {
 		return View::make('programmers.index')->with($array);
 
 	}
+	
+	public function postIndex(){
+
+		$from = Input::get('from');
+
+		$employees = Employees::allFrom($from, 5);
+
+		$programs = $employees[0]->programs;
+
+		$dates = $this->getFrom( $from, 5 );
+
+		//dd($employees[0]->programmersFortnight());
+
+		$array = array(
+			'employees' => $employees,
+			'dates' => $dates,
+			'from' => $from,
+			'route' => $this->route
+		);
+
+		return View::make('programmers.filter')->with($array);
+		
+	}
+
+	public function getFrom( $from, $days = 15 ){
+
+		$from = date('Y-m-d', strtotime($from));
+
+		$dates = array();
+
+		for( $i = 0 ; $i < $days ; $i++ ){
+			$dates[] = date('Y-m-d', strtotime($from.'+'.$i.' days'));
+		}
+
+		return $dates;
+
+	}
 
 	public function getFortnight(){
 
@@ -81,7 +118,7 @@ class ProgrammerController extends \BaseController {
 
 		$dates = array();
 
-		for ($i = -4; $i <= 4; $i++) { 
+		for ($i = -2; $i <= 2; $i++) { 
 			if( $i > -1 ):
 				$dates[] = date('Y-m-d', strtotime('+'.$i.' days'));
 			else:
@@ -216,23 +253,6 @@ class ProgrammerController extends \BaseController {
 				'error' => true
 				));
 		}
-
-	}
-
-	public function postIndex(){
-
-		$desde = Input::get('desde');
-		$from = Input::get('hasta');
-		$municipio = Input::get('municipio');
-
-		$programmers = Programmers::all();
-
-			$array = array(
-			'programmers' => $programmers,
-			'route' => $this->route
-			);
-
-		return View::make('programmers.index')->with($array);
 
 	}
 
