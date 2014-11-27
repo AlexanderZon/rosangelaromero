@@ -28,7 +28,7 @@
                     <button type="submit" class="btn btn-info"><i class="fa icon-filter"></i> Filtrar</button>
                   </div>
                 </form>
-                <form action="{{ $route }}/report" method="post">
+                <form action="{{ $route }}/report" target="_blank" method="post">
                   <input class="form-control" type="hidden" name="from" value="{{ $from }}">
                   <div class="col-sm-1">
                     <button type="submit" class="btn btn-success"><i class="fa icon-cloud-download"></i> Reporte</button>

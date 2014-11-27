@@ -28,6 +28,12 @@
                     <button type="submit" class="btn btn-info"><i class="fa icon-cloud-download"></i> Filtrar</button>
                   </div>
                 </form>
+                <form action="{{ $route }}/report" target="_blank" method="post">
+                  <input class="form-control" type="hidden" name="from" value="{{ $dates[0] }}">
+                  <div class="col-sm-1">
+                    <button type="submit" class="btn btn-success"><i class="fa icon-cloud-download"></i> Reporte</button>
+                  </div>
+                </form>
               </div>
               <div class="widget-content padded clearfix">
                 <table class="table table-filters">

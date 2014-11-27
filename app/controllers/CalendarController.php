@@ -4,6 +4,8 @@ class CalendarController extends \BaseController {
 
 	protected $route = '/calendar';
 
+	protected $excel_parameters = null;
+
 	public function getIndex()
 	{
 
@@ -41,6 +43,35 @@ class CalendarController extends \BaseController {
 		);
 
 		return View::make('calendar.filter')->with($array);
+
+	}
+
+	public function postReport(){
+
+		$from = date('d-m-Y', strtotime(Input::get('from')));
+
+		$employees = Employees::allFrom($from);
+
+		$programs = $employees[0]->programs;
+
+		$dates = $this->getFrom( $from );
+
+		$this->excel_parameters = array(
+			'employees' => $employees,
+			'dates' => $dates,
+			'from' => $from,
+			'route' => $this->route
+		);
+
+		Excel::create('reporte-quincena-'.$from, function( $excel ){
+
+			$excel->sheet('New sheet', function($sheet) {
+
+		        $sheet->loadView('calendar.report', $this->excel_parameters );
+
+		    });
+
+		})->export('xls');
 
 	}
 
