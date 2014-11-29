@@ -5,7 +5,7 @@
       <div class="container-fluid main-content">
         <div class="page-title">
           <h1>
-            Calendario de la Quincena
+            Asistencias de la Quincena
           </h1>
         </div>
         <!-- DataTables Example -->

@@ -304,7 +304,7 @@
                 <span aria-hidden="true" class="icon-cogs"></span>Programador</a>
               </li>
               <li><a href="/calendar">
-                <span aria-hidden="true" class="icon-calendar"></span>Calendario</a>
+                <span aria-hidden="true" class="icon-calendar"></span>Asistencias</a>
               </li>
               @if(Auth::check() && Auth::user()->type=='administrator')
               <li>

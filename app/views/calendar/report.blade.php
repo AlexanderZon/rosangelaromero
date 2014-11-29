@@ -41,10 +41,10 @@
   	@foreach( $employees as $employee )
 	  	<?php $hours = 0 ?>
 		<tr>
-		    <td style="background-color:#8e8e89;color:#eee;">
+		    <td style="color:#000;">
 		      	{{ $employee->identification_number }}
 		    </td>
-		    <td style="background-color:#8e8e89;color:#eee;">
+		    <td style="color:#000;">
 		      	{{ $employee->first_name . ' ' . $employee->last_name }}
 		    </td>
 		    @foreach( $dates as $date )
@@ -68,16 +68,16 @@
 		      	@elseif($color == 'blue')
 		      		<td class="filter-category {{ $color }}" style="background-color:#5347D9;text-align:center;color:#eee;" data-coord="{{ $employee->id}}-{{ $date }}">
 		      	@else
-		      		<td class="filter-category {{ $color }}" style="background-color:#8e8e89;text-align:center;color:#eee;" data-coord="{{ $employee->id}}-{{ $date }}">
+		      		<td class="filter-category {{ $color }}" style="text-align:center;color:#000;" data-coord="{{ $employee->id}}-{{ $date }}">
 		      	@endif
 	        	@if($color == 'inactive')
 	            	{{ '-----' }}
 	        	@else
-	        		{{ utf8_decode($prog->shift->prefix) }} {{ utf8_decode($prog->service['name']) }}
+	        		{{ utf8_decode($prog->shift->prefix) }}
 	        	@endif
 		      	</td>
 		    @endforeach
-		    <td style="background-color:#53D947;text-align:center;color:#eee;">
+		    <td style="text-align:center;color:#000;">
 		      	{{ $hours }}
 		    </td>
 		</tr>

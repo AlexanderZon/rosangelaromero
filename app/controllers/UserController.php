@@ -29,7 +29,7 @@ class UserController extends \BaseController {
 			$user->first_name = Input::get('first_name');
 			$user->last_name = Input::get('last_name');
 			$user->username = Input::get('username');
-			$user->password = Input::get('password');
+			$user->password = Hash::make(Input::get('password'));
 			$user->email = Input::get('email');
 			$user->type = Input::get('type');
 			$user->status = 'draft';

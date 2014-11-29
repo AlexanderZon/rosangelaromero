@@ -13,7 +13,7 @@
           <div class="col-lg-12">
             <div class="widget-container fluid-height clearfix">
               <div class="heading">
-                <a href="/usuarios/create"><i class="icon-user"></i>Añadir Nuevo Usuario</a>
+                <a href="{{ $route }}/create"><i class="icon-user"></i>Añadir Nuevo Usuario</a>
               </div>
               <div class="widget-content padded clearfix">
                 <table class="table table-bordered table-striped" id="dataTable1">

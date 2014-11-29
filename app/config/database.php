@@ -88,7 +88,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'pasantias_rosangela',
+			'database'  => 'pasantias_prueba',
 			'username'  => 'root',
 			'password'  => '',
 			'charset'   => 'utf8',
